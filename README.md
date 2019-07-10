@@ -85,6 +85,8 @@ let result2 = mather.mul('-0.6', '0.3') // -2
 ```javascript
 
 let result1 = mather.red(2, 4) // {num1: 1, num2: 2}
+let result2 = mather.red('-2', '6') // {num1: -2, num2: 3}
+let result3 = mather.red('-4', '-6') // {num1: 2, num2: 3}
 
 ```
 
@@ -104,3 +106,5 @@ let newNumber2 = mather.moveDecimalPoint(1.23456, 3 , 'right') // 1234.56
   
 ##### 0.1.2
 * 优化了约分函数在严格模式下的问题
+
+

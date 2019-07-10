@@ -217,8 +217,8 @@ export function red(_num1, _num2) {
     ret.num2 = div(num2, minNumber);
 
     if (numStatus.numStatus1 == false && numStatus.numStatus1 != numStatus.numStatus2) {
-        ret.num1 = numStatus.numStatus1 ? ret.num1 : "-" + ret.num1;
-        ret.num2 = numStatus.numStatus2 ? ret.num2 : "-" + ret.num2;
+        ret.num1 = numStatus.numStatus1 ? ret.num1 : Number("-" + ret.num1);
+        ret.num2 = numStatus.numStatus2 ? ret.num2 : Number("-" + ret.num2);
     }
     return ret;
 }
