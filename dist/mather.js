@@ -136,7 +136,12 @@ export function mul(_num1, _num2) {
     num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
     var pointLen1 = getPointLength(num1),
         pointLen2 = getPointLength(num2);
-    var maxPointLen = pointLen1 > pointLen2 ? pointLen1 : pointLen2;
+    var maxPointLen = 0;
+    if (pointLen1 > 0 && pointLen2 > 0) {
+        maxPointLen = pointLen1 + pointLen2;
+    } else {
+        maxPointLen = pointLen1 > pointLen2 ? pointLen1 : pointLen2;
+    }
 
     if (pointLen1 > 0 || pointLen2 > 0) {
         var fruitData = parseFloat(num1) * parseFloat(num2);
@@ -239,7 +244,7 @@ export function getMaxApp(_num1, _num2) {
         if (num1 % num2 == 0) {
             returnData = num2;
         } else {
-            returnData = arguments.callee(num2, num1 % num2);
+            returnData = getMaxApp(num2, num1 % num2);
         }
     }
     returnData = returnData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(returnData, true) : returnData;
