@@ -12,12 +12,20 @@
   * 增加了部分数学功能，以达到程序计算时所需要的计算平台标准。
   * 优化math对象在某些情况下自动转成科学计数法的问题。
 ##### 内置函数：
-  * 俩数大小比对（兼容科学计数法）
+  * 俩数大小比对 （兼容科学计数法）
   * 数字小数点移位
  
 
 ### 用法
 
+#####引用方式
+```javascript
+
+import { add, red } from 'math-er'
+import mather from 'math-er'
+
+```
+#####用法
 ```javascript
 import mather from 'math-er'
 let result1 = mather.add(2,3.6) // 5.6
@@ -42,8 +50,6 @@ let result5 = mather.red(0.8, 1.2) // -0.4
 #### div
 * 除法
 
-#### 
-
 #### moveDecimalPoint --- 小数点移位
 * 可对数字（含string型数字）进行移位
 ```javascript
@@ -51,3 +57,7 @@ let newNumber1 = mather.moveDecimalPoint(1.2, 3 , 'left') // 0.0012
 let newNumber2 = mather.moveDecimalPoint(1.23456, 3 , 'right') // 1234.56
 
 ```
+
+#### 版本更新
+##### 0.1.0
+* 优化了引用方式。

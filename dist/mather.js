@@ -1,4 +1,4 @@
-function moveDecimalPoint(_data, _num, _boo) {
+export function moveDecimalPoint(_data, _num, _boo) {
     let data = _data.toString();
     let number = _num;
     let boo = _boo == "right" ? "right" : "left";
@@ -55,7 +55,7 @@ function moveDecimalPoint(_data, _num, _boo) {
     return data;
 }
 
-function setScientificNotationToDecimal(_num, _boo) {
+export function setScientificNotationToDecimal(_num, _boo) {
 
     var number = _num.toString(),
         boo = _boo == false ? false : true;
@@ -88,69 +88,69 @@ function setScientificNotationToDecimal(_num, _boo) {
     return number;
 }
 
-function add(_num1, _num2) {
+export function add(_num1, _num2) {
     var num1 = _num1.toString(),
         num2 = _num2.toString();
     var fruitData = 0;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
-    var pointLen1 = this.getPointLength(num1),
-        pointLen2 = this.getPointLength(num2);
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
+    var pointLen1 = getPointLength(num1),
+        pointLen2 = getPointLength(num2);
     var maxPointLen = pointLen1 > pointLen2 ? pointLen1 : pointLen2;
     if (pointLen1 > 0 || pointLen2 > 0) {
         fruitData = parseFloat(num1) + parseFloat(num2);
-        fruitData = fruitData.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(fruitData, true) : fruitData;
-        var fruitPointLength = this.getPointLength(fruitData);
-        fruitData = fruitPointLength > maxPointLen ? this.toFixed(fruitData, maxPointLen) : fruitData;
+        fruitData = fruitData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(fruitData, true) : fruitData;
+        var fruitPointLength = getPointLength(fruitData);
+        fruitData = fruitPointLength > maxPointLen ? toFixed(fruitData, maxPointLen) : fruitData;
     } else {
         fruitData = parseInt(num1) + parseInt(num2);
     }
     fruitData = Number(fruitData);
     return fruitData;
 }
-function sub(_num1, _num2) {
+export function sub(_num1, _num2) {
     var num1 = _num1.toString(),
         num2 = _num2.toString();
     var fruitData = 0;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
-    var pointLen1 = this.getPointLength(num1),
-        pointLen2 = this.getPointLength(num2);
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
+    var pointLen1 = getPointLength(num1),
+        pointLen2 = getPointLength(num2);
     var maxPointLen = pointLen1 > pointLen2 ? pointLen1 : pointLen2;
     if (pointLen1 > 0 || pointLen2 > 0) {
         var fruitData = parseFloat(num1) - parseFloat(num2);
-        fruitData = fruitData.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(fruitData, true) : fruitData;
-        var fruitPointLength = this.getPointLength(fruitData);
-        fruitData = fruitPointLength > maxPointLen ? this.toFixed(fruitData, maxPointLen) : fruitData;
+        fruitData = fruitData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(fruitData, true) : fruitData;
+        var fruitPointLength = getPointLength(fruitData);
+        fruitData = fruitPointLength > maxPointLen ? toFixed(fruitData, maxPointLen) : fruitData;
     } else {
         fruitData = parseInt(num1) - parseInt(num2);
     }
     fruitData = Number(fruitData);
     return fruitData;
 }
-function mul(_num1, _num2) {
+export function mul(_num1, _num2) {
     var num1 = _num1.toString(),
         num2 = _num2.toString();
     var fruitData = 0;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
-    var pointLen1 = this.getPointLength(num1),
-        pointLen2 = this.getPointLength(num2);
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
+    var pointLen1 = getPointLength(num1),
+        pointLen2 = getPointLength(num2);
     var maxPointLen = pointLen1 > pointLen2 ? pointLen1 : pointLen2;
 
     if (pointLen1 > 0 || pointLen2 > 0) {
         var fruitData = parseFloat(num1) * parseFloat(num2);
-        fruitData = fruitData.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(fruitData, true) : fruitData;
-        var fruitPointLength = this.getPointLength(fruitData);
-        fruitData = fruitPointLength > maxPointLen ? this.toFixed(fruitData, maxPointLen) : fruitData;
+        fruitData = fruitData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(fruitData, true) : fruitData;
+        var fruitPointLength = getPointLength(fruitData);
+        fruitData = fruitPointLength > maxPointLen ? toFixed(fruitData, maxPointLen) : fruitData;
     } else {
         fruitData = parseInt(num1) * parseInt(num2);
     }
-    fruitData = fruitData.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(fruitData, true) : fruitData;
+    fruitData = fruitData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(fruitData, true) : fruitData;
     fruitData = Number(fruitData);
     return fruitData;
 }
-function div(_num1, _num2) {
+export function div(_num1, _num2) {
     var num1 = _num1.toString(),
         num2 = _num2.toString();
     var de1 = 0,
@@ -160,8 +160,8 @@ function div(_num1, _num2) {
     var returnData = 0;
     var n1Status = false,
         n2Status = false;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
     if (num1.charAt(0) == "-") {
         n1Status = true;
         num1 = num1.slice(1);
@@ -170,8 +170,8 @@ function div(_num1, _num2) {
         n2Status = true;
         num2 = num2.slice(1);
     }
-    de1 = this.getPointLength(num1);
-    de2 = this.getPointLength(num2);
+    de1 = getPointLength(num1);
+    de2 = getPointLength(num2);
     int1 = Number(num1.toString().replace(".", ""));
     int2 = Number(num2.toString().replace(".", ""));
     returnData = int1 / int2;
@@ -188,15 +188,15 @@ function div(_num1, _num2) {
     returnData = Number(returnData);
     return returnData;
 }
-function red(_num1, _num2) {
+export function red(_num1, _num2) {
     var num1 = _num1.toString(),
         num2 = _num2.toString();
     var ret = { num1: 0, num2: 0 },
         numStatus = { numStatus1: true, numStatus2: true },
         minNumber = 1;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
-    if (this.getPointLength(num1) > 0 || this.getPointLength(num2) > 0) {
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
+    if (getPointLength(num1) > 0 || getPointLength(num2) > 0) {
         return ret;
     }
     if (parseFloat(num1) < 0) {
@@ -207,9 +207,9 @@ function red(_num1, _num2) {
         numStatus.numStatus2 = false;
         num2 = Math.abs(num2);
     }
-    minNumber = this.getMaxApp(num1, num2);
-    ret.num1 = this.div(num1, minNumber);
-    ret.num2 = this.div(num2, minNumber);
+    minNumber = getMaxApp(num1, num2);
+    ret.num1 = div(num1, minNumber);
+    ret.num2 = div(num2, minNumber);
 
     if (numStatus.numStatus1 == false && numStatus.numStatus1 != numStatus.numStatus2) {
         ret.num1 = numStatus.numStatus1 ? ret.num1 : "-" + ret.num1;
@@ -217,10 +217,10 @@ function red(_num1, _num2) {
     }
     return ret;
 }
-function toFixed(_data, _len) {
+export function toFixed(_data, _len) {
     var data = _data.toString(),
         maxLength = _len;
-    var pointLength = this.getPointLength(data);
+    var pointLength = getPointLength(data);
     if (pointLength > maxLength) {
         if (data.indexOf(".") > -1) {
             data = Math.round(data * Math.pow(10, maxLength)) / Math.pow(10, maxLength).toString();
@@ -228,12 +228,12 @@ function toFixed(_data, _len) {
     }
     return data;
 }
-function getMaxApp(_num1, _num2) {
+export function getMaxApp(_num1, _num2) {
     var num1 = _num1.toString(),
         num2 = _num2.toString();
     var returnData = 0;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
 
     if (num1.toString().indexOf(".") == -1 && !isNaN(num1) || num2.toString().indexOf(".") == -1 && !isNaN(num2)) {
         if (num1 % num2 == 0) {
@@ -242,35 +242,35 @@ function getMaxApp(_num1, _num2) {
             returnData = arguments.callee(num2, num1 % num2);
         }
     }
-    returnData = returnData.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(returnData, true) : returnData;
+    returnData = returnData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(returnData, true) : returnData;
     return returnData;
 }
-function getMinApp(_num1, _num2) {
+export function getMinApp(_num1, _num2) {
     var num1 = _num1,
         num2 = _num2;
     var returnData = 0,
         maxApp = 1;
     var x, y;
-    num1 = num1.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num1, true) : num1;
-    num2 = num2.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(num2, true) : num2;
+    num1 = num1.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num1, true) : num1;
+    num2 = num2.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(num2, true) : num2;
 
     if (num1.toString().indexOf(".") == -1 && !isNaN(num1) || num2.toString().indexOf(".") == -1 && !isNaN(num2)) {
-        maxApp = this.getMaxApp(num1, num2);
+        maxApp = getMaxApp(num1, num2);
 
-        x = this.div(num1, maxApp);
-        y = this.div(num1, maxApp);
-        returnData = this.mul(this.mul(x, y), maxApp);
+        x = div(num1, maxApp);
+        y = div(num1, maxApp);
+        returnData = mul(mul(x, y), maxApp);
     }
-    returnData = returnData.toString().indexOf("e") > -1 ? this.setScientificNotationToDecimal(returnData, true) : returnData;
+    returnData = returnData.toString().indexOf("e") > -1 ? setScientificNotationToDecimal(returnData, true) : returnData;
     return returnData;
 }
-function getPointLength(_data) {
+export function getPointLength(_data) {
     var data = _data.toString();
     var len = data.length - data.indexOf(".") - 1 == data.length ? 0 : data.length - data.indexOf(".") - 1;
     return len;
 }
 
-export default mather = {
+export default {
     moveDecimalPoint,
     setScientificNotationToDecimal,
     add,
